@@ -41,7 +41,18 @@ export default function TextForm() {
       
         setText(capitalizedString)
     }
-    const [text, setText] = useState("Enter the text here: ");
+    const betweenSpaces = () => {
+        let newText = text.split("/[  ] + /");
+        setText(newText.join(" "));
+    }
+    const copytext = () => {
+        console.log("I have copied this text")
+        var text = document.getElementById("mybox");
+        text.select();
+        text.setSelectionRange(0, 9999);
+        navigator.clipboard.writeText(text.value);
+    }
+    const [text, setText] = useState("");
     return (
         <div>
         <div className="mb-3">
@@ -53,6 +64,8 @@ export default function TextForm() {
         <button type="button" onClick={clearAllth} className="btn btn-danger mx-2">Clear</button>
         <button type="button" onClick={trimthest} className="btn btn-info mx-2">Trim</button>
         <button type="button" onClick={camelCase} className="btn btn-info mx-2">camelCase</button>
+        <button type="button" onClick={betweenSpaces} className="btn btn-info mx-2">Remove Extra Spaces</button>
+        <button type="button" onClick={copytext} className="btn btn-info mx-2">Copy Text</button>
         
         <div className="container my-4">
             <h1>Summary Of The Text</h1>
