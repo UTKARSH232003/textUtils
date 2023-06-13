@@ -56,7 +56,7 @@ export default function TextForm() {
     return (
         <div>
         <div className="mb-3">
-            <label for="mybox" className="form-label fs-3"><b>Enter Your Text Here: </b></label>
+            <label htmlFor="mybox" className="form-label fs-3"><b>Enter Your Text Here: </b></label>
             <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="6"></textarea>
         </div>
         <button type="button" onClick= {touppercase} className="btn btn-primary">To UpperCase</button>
