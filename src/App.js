@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 function App() {
-  return ( 
+  return (
     <>
       {/* <Navbar abouttext="this is TextUtil"/>  */}
       <Navbar/>
@@ -11,7 +11,7 @@ function App() {
         <TextForm/>
       </div>
       
-    </>  
+    </>
   );
 }
 
