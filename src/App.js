@@ -19,6 +19,18 @@ function App() {
       showAlert("Light Mode has been enabled", "success")
     }
   } 
+  const toggleModeGreen = () => {
+    if(mode === 'light'){
+      setmode('green')
+      document.body.style.background = '#F2FFF0';
+      showAlert("Green Mode has been enabled", "success")
+    }
+    else{
+      setmode('light')
+      document.body.style.background = 'white';
+      showAlert("Light Mode has been enabled", "success");
+    }
+  }
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -33,7 +45,7 @@ function App() {
   return (
     <>
       {/* <Navbar abouttext="this is TextUtil"/>  */}
-      <Navbar text="TextUtils" abouttext="this is TextUtil" mode={mode} toggleMode = {toggleMode}/>
+      <Navbar text="TextUtils" abouttext="this is TextUtil" mode={mode} toggleMode = {toggleMode} toggleModeGreen= {toggleModeGreen}/>
       <Alert alert={alert}/> 
       <div className="container my-3">
         <TextForm mode={mode} showAlert={showAlert}/>
