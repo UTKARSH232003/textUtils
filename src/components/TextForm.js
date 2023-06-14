@@ -66,10 +66,10 @@ export default function TextForm(props) {
     }
     const [text, setText] = useState("");
     return (
-        <div className='container' style={{color: props.mode === 'dark'?'white':'black'}}>
+        <div className='container' style={{color: props.mode === 'green'?'#333333':(props.mode === 'dark'?'white':'black')}}>
         <div className="mb-3">
             <label htmlFor="mybox" className="form-label fs-3"><b>Enter Your Text Here: </b></label>
-            <textarea className="form-control" style= {{backgroundColor: props.mode === 'light'?'white':'black', color: props.mode === 'dark'?'white':'black'}} value={text} onChange={handleOnChange} id="mybox" rows="6"></textarea>
+            <textarea className="form-control" style= {{backgroundColor: props.mode === 'green'? '#333333':(props.mode === 'light'?'white':'black'), color: props.mode === 'green'?'#333333':(props.mode === 'dark'?'white':'black')}} value={text} onChange={handleOnChange} id="mybox" rows="6"></textarea>
         </div>
         <button type="button" onClick= {touppercase} className="btn btn-primary">To UpperCase</button>
         <button type="button" onClick = {tolowercase}className="btn btn-success mx-2">ToLowerCase</button>
@@ -81,7 +81,7 @@ export default function TextForm(props) {
         
         <div className="container my-4">
             <h1>Summary Of The Text</h1>
-            <p>{text.split(" ").length} Words, {text.length} Letters</p>
+            <p>{text.trim().length === 0 ? "No text provided" : `${text.trim().split(/\s+/).length} Words, ${text.trim().length} Letters`}</p>
         </div>
 
         <h1>Preview</h1>
