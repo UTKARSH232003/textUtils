@@ -1,10 +1,16 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 function App() {
   const [mode, setmode] = useState('light');
   const toggleMode = () => {
@@ -44,13 +50,36 @@ function App() {
   }
   return (
     <>
-      {/* <Navbar abouttext="this is TextUtil"/>  */}
+    {/* <Router>
+       <Navbar abouttext="this is TextUtil"/>  
       <Navbar text="TextUtils" abouttext="this is TextUtil" mode={mode} toggleMode = {toggleMode} toggleModeGreen= {toggleModeGreen}/>
       <Alert alert={alert}/> 
       <div className="container my-3">
-        <TextForm mode={mode} showAlert={showAlert}/>
-        {/* <About/> */}
-      </div> 
+        <Routes>
+          <Route path="/about">
+            <About/>  
+          </Route>
+          
+          <Route path="/">
+            <TextForm mode={mode} showAlert={showAlert}/>
+          </Route>
+        </Routes>
+
+      </div>
+      </Router>  */}
+      
+
+<Router>
+  <Navbar text="TextUtils" abouttext="this is TextUtil" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} />
+  <Alert alert={alert} />
+  <div className="container my-3">
+    <Routes>
+      <Route path="/about" element={<About />} />
+      <Route path="/" element={<TextForm mode={mode} showAlert={showAlert} />} />
+    </Routes>
+  </div>
+</Router>
+
     </>
   );
 }
