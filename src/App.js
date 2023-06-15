@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 function App() {
   const [mode, setmode] = useState('light');
-  const toggleMode = () => {
+  const toggleMode = (cls) => {
     if(mode === 'light'){
       setmode('dark')
       document.body.style.backgroundColor = '#343a40';
@@ -74,7 +74,7 @@ function App() {
   <Alert alert={alert} />
   <div className="container my-3">
     <Routes>
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={<About mode={mode}/>} />
       <Route path="/" element={<TextForm mode={mode} showAlert={showAlert} />} />
     </Routes>
   </div>
